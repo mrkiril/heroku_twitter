@@ -53,6 +53,9 @@ a {
 a:hover {
     color: #ffffff;
 }
+.alert_margin{
+    margin-top: 15px;
+}
 </style>
 <body>
     <div class="d">
@@ -76,7 +79,7 @@ a:hover {
                     <!-- MESSAGE WRONG REGISTER-->
                     {% if not username %}
                     
-                    <div class="alert alert-danger alert-dismissable">
+                    <div class="alert alert-danger alert-dismissable alert_margin">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                       <strong>Warning!</strong><h4> There is no user wuth this e-mail or password</h4>
                     </div>                        

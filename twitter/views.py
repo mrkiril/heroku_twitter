@@ -17,10 +17,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def lalka(request):
-    dick = {
-    }
-    return render(request, 'lalka.html', dick)
+def main(request):
+    return redirect('/blog/')
 
 def static(request):
     base = os.path.basename(request.path)

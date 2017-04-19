@@ -20,8 +20,8 @@ urlpatterns = [
     url(r'^reg/', views.registration),
     url(r'^auth/', views.authentefication),
     url(r'^logout/', views.logout),
+    url(r'^$', views.main),
     url(r'^blog/', views.blog),
     url(r'^twit/', include('twitter.urls')),
     url(r'^static/.*', views.static),
-    url(r'^lalka/', views.lalka),
 ]

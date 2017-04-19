@@ -21,7 +21,7 @@
 </head>
 <style type="text/css">
  body{    
-    background-image: url(http://backgrounds4k.net/wp-content/uploads/2016/03/Grey-Abstract-2015-hd-wallpaper.jpg);
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/41/6f/03/416f03f5194ef3189e81cdb8ea2bd62b.jpg);
  }
 
 .d {
@@ -40,27 +40,33 @@
     margin-bottom: 0px;
     margin-right: 0px;
 }
-.inl{
+.inl{    
     display: inline-block;
     margin-left: 20px;
     margin-bottom: 0px;
     margin-top: 0px;
     vertical-align: bottom;
 }
+a {
+    color: #b7b7b7; /* Цвет обычной ссылки */
+}
+a:hover {
+    color: #ffffff;
+}
 </style>
 <body>
     <div class="d">
         <div class="in">            
             <div class="row form">
-                <div class="col-xs-1 col-sm-2 col-md-3 col-lg-4"></div>
+                <div class="col-xs-1 col-sm-2 col-md-3 col-lg-2"></div>
                 <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4">                    
                     <form role="form-inline" name="f1" method="POST" action="{{DOMEN}}">
                         {% csrf_token %}
                         <div class="form-group">                                
-                            <input type="text" name="enter_email" value="user_user" class="form-control" placeholder="Enter email">
+                            <input type="text" name="enter_email" class="form-control" placeholder="Enter email">
                         </div>
                         <div class="form-group">                                
-                            <input type="password" name="password" value="passwd" class="form-control" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                         <div>
                         <button type="submit" class="btn btn-default">Enter to Twitter</button>

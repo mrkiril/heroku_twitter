@@ -94,6 +94,7 @@ def blog(request):
             'update_form': '/twit/update/form/',
             'send_link': '/twit/add/',
             'logout': '/logout/',
+            'username': request.user,
             'articles': twitter_db.read_data_from_sql(request.user)
         }
         return render(request, 'forms.html', dick)

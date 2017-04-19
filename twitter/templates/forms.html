@@ -12,7 +12,10 @@
     {% load staticfiles %}
     <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
     <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+
     <link href="{% static "js/bootstrap.js" %}" rel="stylesheet">
+    <link href="{% static "js/docs.min.js" %}" rel="stylesheet">
     <link rel="shortcut icon" href="{% static "favicon.ico" %}">
     
 <style type="text/css">
@@ -42,15 +45,26 @@ p{
     margin-bottom: 10px;
     margin-right: 0px;
 }
+
 .form_margin_inl{
     display: inline-block;
-    margin-left: 10px
+    width: auto;
+    height: 30px;
+    margin: 0 0 0 0px;
+    padding: 5 10 5 10px;
+    border-radius: 3px;
+    vertical-align: middle;
+    text-align: center;
+    color: #555;    
 }
 a {
     color: #BBBBBB; /* Цвет обычной ссылки */
 }
 a:hover {
     color: #131111;
+}
+.twit_font_size{
+    font-size: 19pt;
 }
 </style>
 </head>
@@ -71,13 +85,16 @@ a:hover {
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
             <ul class="nav navbar-nav">
+                <!--
                 <li class="active"><a href="#">Just Button 1</a></li>
                 <li><a href="#">Just Button 2</a></li>
                 <li><a href="#">Just Button 3</a></li>
+                -->
             </ul>
 
             <form class="navbar-form navbar-right" role="search" name="f1" method="post" action="{{ logout }}">{% csrf_token %}
-                <input type="hidden" name="type_post" value="exit">                
+                <input type="hidden" name="type_post" value="exit">
+                <h4 class="form_margin_inl">{{ username }}</h4>                
                 <button type="submit" class="btn btn-default">Exit</button>
             </form>
           
@@ -89,8 +106,7 @@ a:hover {
 
     <div class="container">
         <div class="blog-header">
-            <h1 class="blog-title">The Bootstrap Blog</h1>
-                <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+            <h1 class="blog-title">Note. Local. Ever.</h1>
         </div>
         
         
@@ -111,23 +127,22 @@ a:hover {
                             <p class="blog-post-meta">{{ ar.article_date}}</p>
                         </div>
                         <div align="right" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <div >
-                            
+                            <div >                            
                             <a href="{{ update_form }}{{ ar.id }}" onclick="form.submit();"><span class="glyphicon glyphicon-pencil"></span></a>
-                            
-                            
-                            <a href="{{ delete_twit }}{{ ar.id }}" onclick="form.submit();"><span class="glyphicon glyphicon-remove"></span></a>
-                            
+                                                        
+                            <a href="{{ delete_twit }}{{ ar.id }}" onclick="form.submit();"><span class="glyphicon glyphicon-remove"></span></a>                            
                             </div>
                         </div>
                     </div>
                     {% if ar.id != twit_update_id %}
-                        <p>{{ ar.twitter_text }}</p>
+                        <h3>{{ ar.twitter_text }}</h3>
                     {% else %}
                         <form name="f1" method="post" action="{{ update_db }}">{% csrf_token %}                
                             <input type="hidden" name="update_id" value="{{twit_update_id}}">
                             <input type="text" name="text" class="form-control form_post" value="{{twit_update_text}}">
-                            <button type="submit" class="btn btn-default btn-sm">Edit twit</button>
+                           
+                            <button type="submit" class="btn btn-default btn-sm form_margin_inl">Confirm changes</button>
+                            <button type="button" class="btn btn-default btn-sm form_margin_inl" onClick='location.href="/blog/"'>Cancel</button>
                         </form>
                     {% endif %}
                 </div>
@@ -145,7 +160,8 @@ a:hover {
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
-            <p>Simple Twitter promo</p>
+            <p>My first test progect.</p>
+            <p>Django + PostgreeSQL</p>
           </div>
           <div class="sidebar-module">
             <h4>Archives</h4>
@@ -167,9 +183,9 @@ a:hover {
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
+              <li><a href="https://github.com/mrkiril">GitHub</a></li>
+              <li><a href="https://vk.com/mrkiril">Vk</a></li>
+              <li><a href="https://www.facebook.com/kukhelnyi">Facebook</a></li>
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
